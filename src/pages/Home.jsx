@@ -1,0 +1,186 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import Reveal from '../components/Reveal.jsx'
+import BrandMark from '../components/BrandMark.jsx'
+import HeroCarousel from '../components/HeroCarousel.jsx'
+import { IMAGES, THUMBS } from '../data/images.js'
+
+const SLIDES = [
+  { image: IMAGES.heroCoast, thumb: THUMBS.heroCoast, caption: 'Your private gateway to the wild Pacific coast.' },
+  { image: IMAGES.kayakSunset, thumb: THUMBS.kayakSunset, caption: 'Cedar-strip kayaks at first light.' },
+  { image: IMAGES.sailSunset, thumb: THUMBS.sailSunset, caption: 'A restored 1962 sloop, under sail.' },
+  { image: IMAGES.kelpForest, thumb: THUMBS.kelpForest, caption: 'Kelp forests, lit from above.' },
+]
+
+export default function Home() {
+  const [activeSlide, setActiveSlide] = useState(0)
+
+  return (
+    <>
+      {/* HERO */}
+      <section
+        className="hero"
+        id="hero"
+        style={{
+          backgroundImage: `linear-gradient(180deg, rgba(9,14,12,0.35) 0%, rgba(9,14,12,0.55) 55%, rgba(9,14,12,0.95) 100%), url('${SLIDES[activeSlide].image}')`
+        }}
+      >
+        <Reveal className="hero-inner">
+          <span className="eyebrow">Salt Line Voyages · Pacific Northwest Coast</span>
+          <h1>
+            The luxury of drifting into the wild, <em>where the tide sets the hour</em> and
+            the coast sets the mood. Salt Line Voyages guides small, private parties by
+            kayak, snorkel, and sail — <em>never more than six guests</em>, never any rush.
+          </h1>
+          <div className="hero-ctas hero-ctas--pills">
+            <Link to="/tours" className="pill-cta">
+              <span>Kayak Area</span>
+              <span className="pill-cta-arrow">›</span>
+            </Link>
+            <Link to="/tours" className="pill-cta">
+              <span>Sail Area</span>
+              <span className="pill-cta-arrow">›</span>
+            </Link>
+          </div>
+        </Reveal>
+
+        <div className="hero-right-stack">
+          <div className="hero-secondary-mark">
+            <BrandMark size="sm" />
+          </div>
+          <HeroCarousel slides={SLIDES} activeIndex={activeSlide} onSelect={setActiveSlide} duration={6000} />
+        </div>
+      </section>
+
+      {/* INTRO */}
+      <section className="intro">
+        <Reveal className="wrap" as="div">
+          <span className="eyebrow">Where the Salt Line Meets the Sky</span>
+          <h2>The coast, at the pace it was meant to be seen.</h2>
+          <p>
+            The tide has its own schedule, and out here, so do we. Salt Line Voyages was
+            built for travelers who want the coast on its own terms — quiet coves,
+            cedar-lined channels, and water so still at dawn it holds the sky. We keep our
+            parties small, our guides local, and our vessels immaculate, so every voyage
+            feels less like a tour and more like an invitation.
+          </p>
+
+          <div className="pillars">
+            <div className="pillar">
+              <h4>Curated, Not Crowded</h4>
+              <p>No more than six guests per voyage. This is the coast as it was meant to be seen — unhurried, and mostly yours.</p>
+            </div>
+            <div className="pillar">
+              <h4>Guided by Locals</h4>
+              <p>Every captain and guide was raised on these waters. What you'll hear isn't a script — it's a lifetime of tide charts.</p>
+            </div>
+            <div className="pillar">
+              <h4>Vessels Worth the View</h4>
+              <p>Handcrafted wooden kayaks, a restored classic sloop, and snorkel gear fit for water this clear. Nothing rushed.</p>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* FEATURE: KAYAK */}
+      <div className="feature">
+        <Reveal as="div" className="feature-media" style={{ backgroundImage: `url('${IMAGES.kelpForest}')` }} />
+        <Reveal as="div" className="feature-text">
+          <span className="eyebrow">Kayak &amp; Snorkel</span>
+          <h2>Paddle into water clear enough to read by.</h2>
+          <p>
+            Cedar-strip kayaks built by regional artisans carry you through protected
+            coves before you ease into a wetsuit for a guided snorkel through kelp
+            forests alive with sea stars and, in season, curious harbor seals.
+          </p>
+          <Link to="/tours" className="btn">View Kayak Voyages</Link>
+        </Reveal>
+      </div>
+
+      {/* FEATURE: SAIL */}
+      <div className="feature reverse">
+        <Reveal as="div" className="feature-media" style={{ backgroundImage: `url('${IMAGES.sailSunset}')` }} />
+        <Reveal as="div" className="feature-text">
+          <span className="eyebrow">Sail &amp; Charter</span>
+          <h2>Let the horizon set the itinerary.</h2>
+          <p>
+            Board our restored 1962 sloop as the light turns gold. Local charcuterie, a
+            curated wine list, and nothing on the agenda but the wind — private charters
+            available for any occasion, any hour the tide allows.
+          </p>
+          <Link to="/tours" className="btn">View Sailing Voyages</Link>
+        </Reveal>
+      </div>
+
+      {/* REVIEWS */}
+      <section className="reviews-section" id="reviews">
+        <div className="wrap">
+          <Reveal className="section-head">
+            <span className="eyebrow">Reviews</span>
+            <h2>Experiences from those who've sailed with us.</h2>
+          </Reveal>
+          <Reveal className="review-grid">
+            <div className="review">
+              <p className="quote">
+                "We've chartered boats from Sydney to the Amalfi Coast. This was the
+                first time the water felt like the whole point."
+              </p>
+              <div className="who">
+                <div className="avatar">A</div>
+                <div>
+                  <div className="name">A. Whitfield</div>
+                  <div className="role">Private Charter Guest</div>
+                </div>
+              </div>
+            </div>
+            <div className="review">
+              <p className="quote">
+                "Our guide knew the tide charts the way most people know their own
+                street. The kelp forest snorkel alone was worth the trip north."
+              </p>
+              <div className="who">
+                <div className="avatar">R</div>
+                <div>
+                  <div className="name">R. Delgado</div>
+                  <div className="role">Dawn Kayak &amp; Snorkel</div>
+                </div>
+              </div>
+            </div>
+            <div className="review">
+              <p className="quote">
+                "Three days, six islands, and not another boat in sight. The camp meals
+                were better than most restaurants we've been to."
+              </p>
+              <div className="who">
+                <div className="avatar">M</div>
+                <div>
+                  <div className="name">M. Okafor</div>
+                  <div className="role">Three-Day Island Passage</div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* CTA BANNER */}
+      <section
+        className="cta-banner"
+        style={{
+          backgroundImage: `linear-gradient(180deg, rgba(9,14,12,0.6), rgba(9,14,12,0.85)), url('${IMAGES.kayakSunset}')`
+        }}
+      >
+        <Reveal className="wrap">
+          <span className="eyebrow">The Coast Rewards Patience</span>
+          <h2>Reservations are limited by design.</h2>
+          <p>
+            Never more than a handful of departures each week, and never more guests
+            than a conversation can hold. If the tide and the calendar align, we'd love
+            to have you aboard.
+          </p>
+          <Link to="/contact" className="btn solid">Check Availability</Link>
+        </Reveal>
+      </section>
+    </>
+  )
+}
