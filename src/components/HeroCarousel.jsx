@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-export default function HeroCarousel({ slides, activeIndex, onSelect, duration = 10000 }) {
+export default function HeroCarousel({ slides, activeIndex, onSelect, duration = 18000 }) {
   const timerRef = useRef(null)
 
   useEffect(() => {

@@ -31,16 +31,23 @@ export default function Tours() {
 
           <Reveal className="tour-list" as="div">
             <div className="tour-card">
-              <div><span className="kicker">Half-day · 4 hours</span></div>
-              <div>
+              <div className="tour-media">
+                <span className="tour-badge">Half-day · 4 hours</span>
+                <img src={IMAGES.kelpForestMd} alt="Sunlight through a kelp forest underwater" loading="lazy" />
+              </div>
+              <div className="tour-content">
                 <h3>Dawn Kayak &amp; Kelp Forest Snorkel</h3>
                 <p>
                   Depart before sunrise into water so still it mirrors the cedar line,
                   then ease into a wetsuit for a guided snorkel through kelp forests
                   alive with sea stars and harbor seals.
                 </p>
+                <div className="tour-meta">
+                  <span>Up to 6 guests</span>
+                  <span>Wetsuit &amp; gear included</span>
+                </div>
               </div>
-              <div className="price">
+              <div className="tour-price">
                 <span className="amount">$195</span>
                 <span className="unit">per person</span>
                 <Link to="/contact">Reserve →</Link>
@@ -48,16 +55,23 @@ export default function Tours() {
             </div>
 
             <div className="tour-card">
-              <div><span className="kicker">Evening · 3 hours</span></div>
-              <div>
+              <div className="tour-media">
+                <span className="tour-badge">Evening · 3 hours</span>
+                <img src={IMAGES.sailSunsetMd} alt="Sailboat on the water at sunset" loading="lazy" />
+              </div>
+              <div className="tour-content">
                 <h3>Sunset Sail Along the Salt Line</h3>
                 <p>
                   Board our restored 1962 sloop as the light turns gold — local
                   charcuterie, a curated wine list, and nothing on the agenda but the
                   horizon.
                 </p>
+                <div className="tour-meta">
+                  <span>Up to 6 guests</span>
+                  <span>Charcuterie &amp; wine included</span>
+                </div>
               </div>
-              <div className="price">
+              <div className="tour-price">
                 <span className="amount">$240</span>
                 <span className="unit">per person</span>
                 <Link to="/contact">Reserve →</Link>
@@ -65,16 +79,23 @@ export default function Tours() {
             </div>
 
             <div className="tour-card">
-              <div><span className="kicker">Multi-day · 3 days / 2 nights</span></div>
-              <div>
+              <div className="tour-media">
+                <span className="tour-badge">Multi-day · 3 days / 2 nights</span>
+                <img src={IMAGES.heroCoastMd} alt="Aerial view of the rocky Pacific Northwest coastline" loading="lazy" />
+              </div>
+              <div className="tour-content">
                 <h3>Three-Day Island Passage</h3>
                 <p>
                   Kayak between uninhabited islands by day, snorkel remote kelp forests
                   few visitors ever reach, and sleep in canvas-wall tents above the tide
                   line.
                 </p>
+                <div className="tour-meta">
+                  <span>Up to 6 guests</span>
+                  <span>All meals &amp; camp gear included</span>
+                </div>
               </div>
-              <div className="price">
+              <div className="tour-price">
                 <span className="amount">$1,450</span>
                 <span className="unit">all-inclusive</span>
                 <Link to="/contact">Reserve →</Link>
@@ -82,14 +103,17 @@ export default function Tours() {
             </div>
           </Reveal>
 
-          <Reveal className="charter-banner">
-            <div>
-              <h4>Something More Bespoke</h4>
-              <p>
-                Full-boat buyouts, custom itineraries, and private events — from
-                proposals on the water to multi-family island retreats.
-              </p>
-            </div>
+          <Reveal
+            className="charter-banner"
+            as="div"
+            style={{ backgroundImage: `url('${IMAGES.kayakSunset}')` }}
+          >
+            <span className="eyebrow">Something More Bespoke</span>
+            <h4>Full-boat buyouts and custom itineraries, built around your occasion.</h4>
+            <p>
+              From proposals on the water to multi-family island retreats — tell us
+              the occasion, and we'll chart the course.
+            </p>
             <Link to="/contact" className="btn">Inquire About a Private Charter</Link>
           </Reveal>
         </div>

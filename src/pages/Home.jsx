@@ -3,12 +3,18 @@ import { Link } from 'react-router-dom'
 import Reveal from '../components/Reveal.jsx'
 import BrandMark from '../components/BrandMark.jsx'
 import HeroCarousel from '../components/HeroCarousel.jsx'
+import HeroBackground from '../components/HeroBackground.jsx'
 import { IMAGES, THUMBS } from '../data/images.js'
 
 const SLIDES = [
   { image: IMAGES.heroCoast, thumb: THUMBS.heroCoast, caption: 'Your private gateway to the wild Pacific coast.' },
   { image: IMAGES.kayakSunset, thumb: THUMBS.kayakSunset, caption: 'Cedar-strip kayaks at first light.' },
-  { image: IMAGES.sailSunset, thumb: THUMBS.sailSunset, caption: 'A restored 1962 sloop, under sail.' },
+  {
+    image: IMAGES.sailSunset,
+    thumb: THUMBS.sailSunset,
+    video: 'https://assets.mixkit.co/videos/4477/4477-720.mp4',
+    caption: 'A restored 1962 sloop, under sail.',
+  },
   { image: IMAGES.kelpForest, thumb: THUMBS.kelpForest, caption: 'Kelp forests, lit from above.' },
 ]
 
@@ -18,19 +24,14 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section
-        className="hero"
-        id="hero"
-        style={{
-          backgroundImage: `linear-gradient(180deg, rgba(9,14,12,0.35) 0%, rgba(9,14,12,0.55) 55%, rgba(9,14,12,0.95) 100%), url('${SLIDES[activeSlide].image}')`
-        }}
-      >
+      <section className="hero" id="hero">
+        <HeroBackground slides={SLIDES} activeIndex={activeSlide} />
+
         <Reveal className="hero-inner">
           <span className="eyebrow">Salt Line Voyages · Pacific Northwest Coast</span>
           <h1>
             The luxury of drifting into the wild, <em>where the tide sets the hour</em> and
-            the coast sets the mood. Salt Line Voyages guides small, private parties by
-            kayak, snorkel, and sail — <em>never more than six guests</em>, never any rush.
+            the coast sets the mood.
           </h1>
           <div className="hero-ctas hero-ctas--pills">
             <Link to="/tours" className="pill-cta">
