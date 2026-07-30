@@ -4,6 +4,7 @@ import Reveal from '../components/Reveal.jsx'
 import BrandMark from '../components/BrandMark.jsx'
 import HeroCarousel from '../components/HeroCarousel.jsx'
 import HeroBackground from '../components/HeroBackground.jsx'
+import TestimonialCarousel from '../components/TestimonialCarousel.jsx'
 import useDocumentHead from '../hooks/useDocumentHead.js'
 import { IMAGES, THUMBS } from '../data/images.js'
 
@@ -31,6 +32,27 @@ const SLIDES = [
     thumb: THUMBS.kelpForest,
     video: 'https://assets.mixkit.co/b97ynluhm8sgs184dgwbhd28w05p',
     caption: 'Kelp forests, lit from above.',
+  },
+]
+
+const REVIEWS = [
+  {
+    quote: "We've chartered boats from Sydney to the Amalfi Coast. This was the first time the water felt like the whole point.",
+    initial: 'A',
+    name: 'A. Whitfield',
+    role: 'Private Charter Guest',
+  },
+  {
+    quote: "Our guide knew the tide charts the way most people know their own street. The kelp forest snorkel alone was worth the trip north.",
+    initial: 'R',
+    name: 'R. Delgado',
+    role: 'Dawn Kayak & Snorkel',
+  },
+  {
+    quote: "Three days, six islands, and not another boat in sight. The camp meals were better than most restaurants we've been to.",
+    initial: 'M',
+    name: 'M. Okafor',
+    role: 'Three-Day Island Passage',
   },
 ]
 
@@ -138,50 +160,16 @@ export default function Home() {
       {/* REVIEWS */}
       <section className="reviews-section" id="reviews">
         <div className="wrap">
-          <Reveal className="section-head">
+          <Reveal className="section-head section-head--center">
             <span className="eyebrow">Reviews</span>
-            <h2>Experiences from those who've sailed with us.</h2>
+            <h2>
+              Experiences from those who've sailed
+              <br />
+              <em>with Salt Line Voyages.</em>
+            </h2>
           </Reveal>
-          <Reveal className="review-grid">
-            <div className="review">
-              <p className="quote">
-                "We've chartered boats from Sydney to the Amalfi Coast. This was the
-                first time the water felt like the whole point."
-              </p>
-              <div className="who">
-                <div className="avatar">A</div>
-                <div>
-                  <div className="name">A. Whitfield</div>
-                  <div className="role">Private Charter Guest</div>
-                </div>
-              </div>
-            </div>
-            <div className="review">
-              <p className="quote">
-                "Our guide knew the tide charts the way most people know their own
-                street. The kelp forest snorkel alone was worth the trip north."
-              </p>
-              <div className="who">
-                <div className="avatar">R</div>
-                <div>
-                  <div className="name">R. Delgado</div>
-                  <div className="role">Dawn Kayak &amp; Snorkel</div>
-                </div>
-              </div>
-            </div>
-            <div className="review">
-              <p className="quote">
-                "Three days, six islands, and not another boat in sight. The camp meals
-                were better than most restaurants we've been to."
-              </p>
-              <div className="who">
-                <div className="avatar">M</div>
-                <div>
-                  <div className="name">M. Okafor</div>
-                  <div className="role">Three-Day Island Passage</div>
-                </div>
-              </div>
-            </div>
+          <Reveal as="div">
+            <TestimonialCarousel reviews={REVIEWS} />
           </Reveal>
         </div>
       </section>

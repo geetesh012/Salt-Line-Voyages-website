@@ -1,7 +1,35 @@
 import { IMAGES } from '../data/images.js'
 import Reveal from '../components/Reveal.jsx'
+import useDocumentHead from '../hooks/useDocumentHead.js'
+
+const CAPTAINS = [
+  {
+    initial: 'E',
+    name: 'Elena Marsh',
+    role: 'Founder & Head Captain',
+    statValue: '20+',
+    statLabel: 'Years on this coast',
+    bio: 'Raised on these channels, Elena has spent over twenty years navigating this coast, from marine research expeditions to founding Salt Line Voyages in the shape it takes today.',
+    tags: ['Licensed Captain', 'Marine Research', 'Founder'],
+  },
+  {
+    initial: 'T',
+    name: 'Tobias Renn',
+    role: 'Lead Guide, Kayak & Snorkel',
+    statValue: '8',
+    statLabel: 'Seasons guiding',
+    bio: 'A former marine biology field assistant, Tobias can name every resident species in the kelp forest — and usually does, mid-paddle.',
+    tags: ['Marine Biology', 'Kelp Ecology', 'Lead Guide'],
+  },
+]
 
 export default function About() {
+  useDocumentHead({
+    title: 'About Us',
+    description: 'A small, intentionally limited outfitter on the Pacific Northwest coast — local guides, hand-chosen vessels, and a standing commitment to low-impact travel.',
+    path: '/about',
+  })
+
   return (
     <>
       <section
@@ -65,23 +93,28 @@ export default function About() {
             </div>
           </Reveal>
 
-          <Reveal className="captains">
-            <div className="captain-card">
-              <div className="avatar">E</div>
-              <div>
-                <h4>Elena Marsh</h4>
-                <div className="role">Founder &amp; Head Captain</div>
-                <p>Raised on these channels, Elena has spent over twenty years navigating this coast, from marine research expeditions to founding Salt Line Voyages in the shape it takes today.</p>
+          <Reveal className="captain-list" as="div">
+            {CAPTAINS.map((captain) => (
+              <div className="captain-row" key={captain.name}>
+                <div className="captain-media">
+                  <span className="captain-badge">{captain.role}</span>
+                  <span className="captain-media-mark">{captain.initial}</span>
+                </div>
+                <div className="captain-content">
+                  <h3>{captain.name}</h3>
+                  <p>{captain.bio}</p>
+                  <div className="captain-tags">
+                    {captain.tags.map((tag) => (
+                      <span className="captain-tag" key={tag}>{tag}</span>
+                    ))}
+                  </div>
+                </div>
+                <div className="captain-stat">
+                  <span className="amount">{captain.statValue}</span>
+                  <span className="unit">{captain.statLabel}</span>
+                </div>
               </div>
-            </div>
-            <div className="captain-card">
-              <div className="avatar">T</div>
-              <div>
-                <h4>Tobias Renn</h4>
-                <div className="role">Lead Guide, Kayak &amp; Snorkel</div>
-                <p>A former marine biology field assistant, Tobias can name every resident species in the kelp forest — and usually does, mid-paddle.</p>
-              </div>
-            </div>
+            ))}
           </Reveal>
         </div>
       </section>

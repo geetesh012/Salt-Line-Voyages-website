@@ -25,14 +25,6 @@ function setCanonical(path) {
   link.setAttribute('href', `${SITE_URL}${path}`)
 }
 
-/**
- * Sets document.title plus meta description / canonical / Open Graph /
- * Twitter card tags for the current page. Call once per page component
- * with a title, description, and the route's path (for canonical + og:url).
- *
- * This is a small hand-rolled alternative to react-helmet — the app only
- * has a handful of routes, so a dependency wasn't worth the extra weight.
- */
 export default function useDocumentHead({ title, description, path = '/', image = DEFAULT_IMAGE, noIndex = false }) {
   useEffect(() => {
     const fullTitle = title ? `${title} · ${SITE_NAME}` : SITE_NAME
