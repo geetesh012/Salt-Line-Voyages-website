@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Salt Line Voyages — coastal kayak, snorkel & sailing outfitter website",
-  "homepage": "https://YOUR_USERNAME.github.io/SaltLineVoyages",
+  "homepage": "https://geetesh012.github.io/Salt-Line-Voyages-website/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
