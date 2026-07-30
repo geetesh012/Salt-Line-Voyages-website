@@ -89,15 +89,15 @@ header.scrolled{
   transition:border-color 0.25s ease, background 0.25s ease;
 }
 .pill-btn:hover{ border-color:var(--sage); }
-.lang-btn{ gap:0.45rem; }
+.lang-btn{ gap:0.4rem; }
 .lang-btn .chev{
-  width:9px;
-  height:9px;
+  font-size:0.85rem;
+  line-height:1;
   color:var(--sage);
-  flex-shrink:0;
+  transform:translateY(1px);
   transition:transform 0.2s ease;
 }
-.lang-btn:hover .chev{ transform:translateY(1px); }
+.lang-btn:hover .chev{ transform:translateY(2px); }
 
 /* Menu button — icon-forward, rightmost element, own hover state distinct
    from the plain bordered pill */

@@ -4,22 +4,44 @@ import Reveal from '../components/Reveal.jsx'
 import BrandMark from '../components/BrandMark.jsx'
 import HeroCarousel from '../components/HeroCarousel.jsx'
 import HeroBackground from '../components/HeroBackground.jsx'
+import useDocumentHead from '../hooks/useDocumentHead.js'
 import { IMAGES, THUMBS } from '../data/images.js'
 
 const SLIDES = [
-  { image: IMAGES.heroCoast, thumb: THUMBS.heroCoast, caption: 'Your private gateway to the wild Pacific coast.' },
-  { image: IMAGES.kayakSunset, thumb: THUMBS.kayakSunset, caption: 'Cedar-strip kayaks at first light.' },
+  {
+    image: IMAGES.heroCoast,
+    thumb: THUMBS.heroCoast,
+    video: 'https://assets.mixkit.co/videos/51502/51502-720.mp4',
+    caption: 'Your private gateway to the wild Pacific coast.',
+  },
+  {
+    image: IMAGES.kayakSunset,
+    thumb: THUMBS.kayakSunset,
+    video: 'https://assets.mixkit.co/videos/1903/1903-720.mp4',
+    caption: 'Cedar-strip kayaks at first light.',
+  },
   {
     image: IMAGES.sailSunset,
     thumb: THUMBS.sailSunset,
     video: 'https://assets.mixkit.co/videos/4477/4477-720.mp4',
     caption: 'A restored 1962 sloop, under sail.',
   },
-  { image: IMAGES.kelpForest, thumb: THUMBS.kelpForest, caption: 'Kelp forests, lit from above.' },
+  {
+    image: IMAGES.kelpForest,
+    thumb: THUMBS.kelpForest,
+    video: 'https://assets.mixkit.co/b97ynluhm8sgs184dgwbhd28w05p',
+    caption: 'Kelp forests, lit from above.',
+  },
 ]
 
 export default function Home() {
   const [activeSlide, setActiveSlide] = useState(0)
+
+  useDocumentHead({
+    title: 'Kayak, Snorkel & Sail — Pacific Northwest',
+    description: 'Guided kayak, snorkel, and sailing voyages along the wild Pacific Northwest coast. Small groups, local captains, vessels worth the view.',
+    path: '/',
+  })
 
   return (
     <>

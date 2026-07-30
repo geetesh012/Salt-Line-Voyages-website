@@ -5,16 +5,19 @@ const prefersReducedMotion =
 
 /**
  * Renders every slide as a stacked, absolutely-positioned layer and
- * crossfades opacity based on which one is active. Slides with a `video`
- * field render a looping, muted background video instead of a static
- * image (falling back to the image if the person prefers reduced motion).
+ * crossfades opacity based on which one is active. Only the active slide
+ * actually mounts a <video> element — with four video slides, playing all
+ * of them at once regardless of visibility would waste bandwidth/CPU for
+ * no visual benefit, since the hidden ones are fully transparent anyway.
+ * Inactive slides show their poster image; when a slide becomes active its
+ * video mounts and starts playing almost immediately.
  */
 export default function HeroBackground({ slides, activeIndex }) {
   return (
     <div className="hero-media" aria-hidden="true">
       {slides.map((slide, i) => {
         const isActive = i === activeIndex
-        const useVideo = Boolean(slide.video) && !prefersReducedMotion
+        const useVideo = isActive && Boolean(slide.video) && !prefersReducedMotion
         return (
           <div key={i} className={`hero-media-layer${isActive ? ' is-active' : ''}`}>
             {useVideo ? (
@@ -25,7 +28,7 @@ export default function HeroBackground({ slides, activeIndex }) {
                 loop
                 muted
                 playsInline
-                preload={isActive ? 'auto' : 'none'}
+                preload="auto"
               />
             ) : (
               <img src={slide.image} alt="" loading={i === 0 ? 'eager' : 'lazy'} />
