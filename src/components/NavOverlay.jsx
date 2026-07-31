@@ -41,7 +41,7 @@ export default function NavOverlay({ onClose }) {
         </ul>
         <div className="nav-contact">
           <p className="eyebrow">For personalized assistance</p>
-          <a href="tel:+13605550142">+1 (360) 555-0142</a>
+          <a href="tel:+13605550142">+1 (111) 999-8888</a>
           <a href="mailto:voyages@saltlinevoyages.com">voyages@saltlinevoyages.com</a>
         </div>
       </div>

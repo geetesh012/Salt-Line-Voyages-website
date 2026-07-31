@@ -24,7 +24,7 @@ export default function Footer() {
           </div>
           <div>
             <h5>Contact</h5>
-            <a href="tel:+13605550142">+1 (360) 555-0142</a>
+            <a href="tel:+13605550142">+1 (111) 999-8888</a>
             <a href="mailto:voyages@saltlinevoyages.com">voyages@saltlinevoyages.com</a>
             <Link to="/contact">Harbor Marina, PNW Coast</Link>
           </div>

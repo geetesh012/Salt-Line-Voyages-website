@@ -66,7 +66,7 @@ export default function Contact() {
             <div className="contact-tiles">
               <a className="contact-tile" href="tel:+13605550142">
                 <span className="label">Call</span>
-                <span className="value">+1 (360) 555-0142</span>
+                <span className="value">+1 (111) 999-8888</span>
               </a>
               <a className="contact-tile" href="mailto:voyages@saltlinevoyages.com">
                 <span className="label">Email</span>
