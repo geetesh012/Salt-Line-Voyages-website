@@ -7,6 +7,7 @@ import HeroBackground from '../components/HeroBackground.jsx'
 import TestimonialCarousel from '../components/TestimonialCarousel.jsx'
 import useDocumentHead from '../hooks/useDocumentHead.js'
 import { IMAGES, THUMBS } from '../data/images.js'
+import ParallaxImage from '../components/ParallaxImage.jsx'
 
 const SLIDES = [
   {
@@ -110,7 +111,7 @@ export default function Home() {
             feels less like a tour and more like an invitation.
           </p>
 
-          <div className="pillars">
+          <Reveal as="div" className="pillars" stagger>
             <div className="pillar">
               <h4>Curated, Not Crowded</h4>
               <p>No more than six guests per voyage. This is the coast as it was meant to be seen — unhurried, and mostly yours.</p>
@@ -123,13 +124,15 @@ export default function Home() {
               <h4>Vessels Worth the View</h4>
               <p>Handcrafted wooden kayaks, a restored classic sloop, and snorkel gear fit for water this clear. Nothing rushed.</p>
             </div>
-          </div>
+          </Reveal>
         </Reveal>
       </section>
 
       {/* FEATURE: KAYAK */}
       <div className="feature">
-        <Reveal as="div" className="feature-media" style={{ backgroundImage: `url('${IMAGES.kelpForest}')` }} />
+        <Reveal as="div" className="feature-media">
+  <ParallaxImage image={IMAGES.kelpForest} />
+</Reveal>
         <Reveal as="div" className="feature-text">
           <span className="eyebrow">Kayak &amp; Snorkel</span>
           <h2>Paddle into water clear enough to read by.</h2>
@@ -144,7 +147,9 @@ export default function Home() {
 
       {/* FEATURE: SAIL */}
       <div className="feature reverse">
-        <Reveal as="div" className="feature-media" style={{ backgroundImage: `url('${IMAGES.sailSunset}')` }} />
+        <Reveal as="div" className="feature-media">
+  <ParallaxImage image={IMAGES.sailSunset} />
+</Reveal>
         <Reveal as="div" className="feature-text">
           <span className="eyebrow">Sail &amp; Charter</span>
           <h2>Let the horizon set the itinerary.</h2>
